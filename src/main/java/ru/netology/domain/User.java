@@ -1,4 +1,4 @@
-package ru.netology.Domain;
+package ru.netology.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Project {
+public class User {
     private String name;
-    }
-
+}

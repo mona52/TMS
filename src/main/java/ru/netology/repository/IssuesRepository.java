@@ -1,6 +1,6 @@
-package ru.netology.Repository;
+package ru.netology.repository;
 
-import ru.netology.Domain.Issue;
+import ru.netology.domain.Issue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class IssuesRepository {
 
-private List<Issue> items = new ArrayList<>();
+private final List<Issue> items = new ArrayList<>();
 
     public boolean add(Issue item) {
         return items.add(item);

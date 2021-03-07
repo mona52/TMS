@@ -1,10 +1,9 @@
-package ru.netology.Manager;
+package ru.netology.manager;
 
-import ru.netology.Domain.*;
-import ru.netology.Repository.IssuesRepository;
+import ru.netology.domain.*;
+import ru.netology.repository.IssuesRepository;
 
 import java.util.*;
-import java.util.function.Predicate;
 
 public class IssuesManager {
 
@@ -22,8 +21,7 @@ public class IssuesManager {
         }
 
         public List<Issue> getAll() {
-            List<Issue> result = repository.getAll();
-            return result;
+            return repository.getAll();
         }
 
     public List<Issue> findAllThatMatchesStatus(String status) {
@@ -43,14 +41,14 @@ public class IssuesManager {
         return issuesWithAuthor;
     }
 
-    public List<Issue> filterByLabel(Set<Labels> labels) {
+    public List<Issue> filterByLabel(Set<Label> labels) {
         List<Issue> allIssues = repository.getAll();
         List<Issue> issuesWithLabel = new ArrayList<>();
         issuesWithLabel = IssuePredicate.filterIssues(allIssues,IssuePredicate.isLabel(labels));
         return issuesWithLabel;
     }
 
-    public List<Issue> filterByAssignee(Set <Assignees> assignees) {
+    public List<Issue> filterByAssignee(Set <Assignee> assignees) {
         List<Issue> allIssues = repository.getAll();
         List<Issue> issuesWithAssignee = new ArrayList<>();
         issuesWithAssignee = IssuePredicate.filterIssues(allIssues,IssuePredicate.isAssignee(assignees));
@@ -63,8 +61,8 @@ public class IssuesManager {
         return result;
     }
 
-    public Comparator getComparator(String p) {
-            Comparator comparator;
+    public Comparator <Issue> getComparator(String p) {
+            Comparator <Issue> comparator;
             switch (p) {
                 case "Author": comparator = new IssueComparator.SortByAuthor();
                     break;
@@ -83,7 +81,7 @@ public class IssuesManager {
         Issue issue = repository.findById(id);
         if (issue !=null) {
             String oldStatus = issue.getStatus();
-            if (oldStatus != newStatus) {
+            if (!oldStatus.equals(newStatus)) {
                 issue.setStatus(newStatus);
             }
         }
@@ -94,7 +92,7 @@ public class IssuesManager {
         Issue issue = repository.findById(id);
         if (issue !=null) {
             String oldStatus = issue.getStatus();
-            if (oldStatus != newStatus) {
+            if (!oldStatus.equals(newStatus)) {
                 issue.setStatus(newStatus);
             }
         }

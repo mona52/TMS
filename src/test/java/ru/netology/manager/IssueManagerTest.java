@@ -1,10 +1,10 @@
-package ru.netology.Manager;
+package ru.netology.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Nested;
-import ru.netology.Domain.*;
-import ru.netology.Repository.IssuesRepository;
+import ru.netology.domain.*;
+import ru.netology.repository.IssuesRepository;
 
 import java.util.*;
 import java.util.List;
@@ -23,16 +23,16 @@ class IssueManagerTest {
     private final Project project2 = new Project("Проект 2");
     private final Project project3 = new Project("Проект 3");
 
-    private final Labels label1 = new Labels("t1");
-    private final Labels label2 = new Labels("t2");
-    private final Labels label3 = new Labels("t3");
-    private final Labels label4 = new Labels("t4");
-    private final Labels label5 = new Labels("t5");
-    private final Labels label6 = new Labels("t6");
+    private final Label label1 = new Label("t1");
+    private final Label label2 = new Label("t2");
+    private final Label label3 = new Label("t3");
+    private final Label label4 = new Label("t4");
+    private final Label label5 = new Label("t5");
+    private final Label label6 = new Label("t6");
 
-    private final Assignees assignee1 = new Assignees(user1.getName());
-    private final Assignees assignee2 = new Assignees(user2.getName());
-    private final Assignees assignee3 = new Assignees(user3.getName());
+    private final Assignee assignee1 = new Assignee(user1.getName());
+    private final Assignee assignee2 = new Assignee(user2.getName());
+    private final Assignee assignee3 = new Assignee(user3.getName());
 
     private final List<Issue> issues = new ArrayList<>();
     private final Issue issue1 = new Issue(1, "задача 1", user2, project1, getElementsSet(assignee1, assignee2), getElementsSet(label1, label2, label5), "open");
